@@ -6,10 +6,12 @@ import java.util.Map;
 
 public class KeyValueSwapper {
     public Map<String, Integer> swap(Map<Integer, String> sourceMap) {
-        Map<String, Integer> map1 = new LinkedHashMap<>();
+        Map<String, Integer> map1 = new HashMap<>();
 
         for (Integer integer : sourceMap.keySet()) {
-            map1.put(sourceMap.get(integer), integer);
+            if (!map1.containsKey(sourceMap.get(integer))){
+                map1.put(sourceMap.get(integer), integer);
+            }
         }
         return map1;
     }
